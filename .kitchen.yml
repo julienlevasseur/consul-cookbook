@@ -11,21 +11,13 @@ verifier:
 
 platforms:
   - name: ubuntu-16.04
-  - name: ubuntu-14.04
-  - name: ubuntu-12.04
-  - name: centos-7.3
-  - name: centos-6.8
-  - name: centos-5.11
-  - name: debian-8.7
-  - name: debian-7.11
-  - name: windows-2012r2
-    driver:
-      box: mwrock/Windows2012R2
-      gui: false
-  - name: windows-2016
-    driver:
-      box: mwrock/Windows2016
-      gui: false
+#  - name: ubuntu-14.04
+#  - name: ubuntu-12.04
+#  - name: centos-7.3
+#  - name: centos-6.8
+#  - name: centos-5.11
+#  - name: debian-8.7
+#  - name: debian-7.11
 
 suites:
   - name: default
@@ -41,15 +33,9 @@ suites:
           acl_master_token: doublesecret
           acl_datacenter: FortMeade
           acl_default_policy: deny
-    excludes:
-      - windows-2012r2
-      - windows-2016
 
   - name: client
     named_run_list: client
-    excludes:
-      - windows-2012r2
-      - windows-2016
 
   - name: git
     attributes:
@@ -59,20 +45,4 @@ suites:
         config: *default-config
         installation:
           provider: git
-    excludes:
-      - windows-2012r2
-      - windows-2016
 
-  - name: windows
-    attributes:
-      consul:
-        config: *default-config
-    includes:
-      - windows-2012r2
-      - windows-2016
-
-  - name: windows_client
-    named_run_list: client
-    includes:
-      - windows-2012r2
-      - windows-2016
