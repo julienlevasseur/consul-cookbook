@@ -45,7 +45,7 @@ suites:
       go:
         version: 1.7
       consul:
-        config: *default-config
+        config: &default-config
         installation:
           provider: git
 
