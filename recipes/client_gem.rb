@@ -6,7 +6,7 @@
 #
 
 if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
-  chef_gem 'diplomat' do
+  chef_gem 'diplomat' do # ~FC009
     version node['consul']['diplomat_version'] if node['consul']['diplomat_version']
     compile_time true
   end

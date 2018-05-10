@@ -57,7 +57,7 @@ module ConsulCookbook
 
       def action_create
         configure_diplomat
-        unless up_to_date?
+        unless up_to_date? # ~FC023
           converge_by 'creating ACL' do
             Diplomat::Acl.create(new_resource.to_acl)
           end
@@ -66,7 +66,7 @@ module ConsulCookbook
 
       def action_delete
         configure_diplomat
-        unless Diplomat::Acl.info(new_resource.id).empty?
+        unless Diplomat::Acl.info(new_resource.id).empty?  # ~FC023
           converge_by 'destroying ACL' do
             Diplomat::Acl.destroy(new_resource.id)
           end
