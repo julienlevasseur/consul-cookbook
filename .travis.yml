@@ -36,12 +36,12 @@ after_script:
   - docker ps -a
   - cat .kitchen/logs/kitchen.log
 
-matrix:
-  include:
-    - script:
-      - bundle install
-      - gem install cookstyle
-      - gem install foodcritic
-      - cookstyle
-      - foodcritic .
-      env: UNIT_AND_LINT=1
+#matrix:
+#  include:
+#    - script:
+#      - bundle install
+#      - gem install cookstyle
+#      - gem install foodcritic
+#      - cookstyle
+#      - foodcritic .
+#      env: UNIT_AND_LINT=1
