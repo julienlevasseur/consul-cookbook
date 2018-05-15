@@ -40,6 +40,8 @@ matrix:
   include:
     - script:
       - bundle install
+      - gem install cookstyle
+      - gem install foodcritic
       - cookstyle
       - foodcritic .
       env: UNIT_AND_LINT=1
