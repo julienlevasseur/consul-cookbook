@@ -66,7 +66,7 @@ module ConsulCookbook
 
       def action_delete
         configure_diplomat
-        unless Diplomat::Acl.info(new_resource.id).empty?  # ~FC023
+        unless Diplomat::Acl.info(new_resource.id).empty? # ~FC023
           converge_by 'destroying ACL' do
             Diplomat::Acl.destroy(new_resource.id)
           end

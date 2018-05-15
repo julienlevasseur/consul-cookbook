@@ -40,5 +40,6 @@ matrix:
   include:
     - script:
       - bundle install
-      - chef exec delivery local all
+      - cookstyle
+      - foodcritic .
       env: UNIT_AND_LINT=1
